@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Helper {
   BuildContext _context;
@@ -20,5 +21,13 @@ class Helper {
       greeting += "Malam";
     }
     return greeting;
+  }
+
+  intentLauncher(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

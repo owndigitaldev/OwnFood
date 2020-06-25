@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ownfood/core/style/app_color.dart';
+import 'package:ownfood/core/tools/helper.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -8,11 +10,13 @@ class AboutPage extends StatefulWidget {
 
 class _AboutPageState extends State<AboutPage> {
   GlobalKey<ScaffoldState> _scaffoldKey;
+  Helper _helper;
 
   @override
   void initState() {
     super.initState();
     _scaffoldKey = new GlobalKey<ScaffoldState>();
+    _helper = new Helper(context: context);
   }
 
   @override
@@ -49,41 +53,127 @@ class _AboutPageState extends State<AboutPage> {
                 borderRadius: BorderRadius.all(Radius.circular(16.0)),
                 color: Color.fromRGBO(255, 255, 255, 0.5),
               ),
-              child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi"
-                    " tincidunt molestie ultrices. Proin elit libero, interdum nec "
-                    "mauris in, pulvinar blandit ligula. Sed vulputate vitae est "
-                    "eget tristique. Nullam suscipit feugiat libero. Vestibulum "
-                    "orci diam, pharetra at erat at, rhoncus tempor diam. Mauris "
-                    "varius urna orci, eu facilisis augue imperdiet ac. "
-                    "Pellentesque habitant morbi tristique senectus et netus et "
-                    "malesuada fames ac turpis egestas. Nulla augue nulla, "
-                    "interdum vel nisi iaculis, malesuada malesuada tellus. Duis "
-                    "ut purus vel lectus vestibulum lacinia a vitae dui. Mauris "
-                    "eget iaculis orci, vel auctor libero. Suspendisse a molestie "
-                    "nibh. Cras nec erat faucibus, lobortis metus in, tincidunt "
-                    "mauris. Mauris suscipit pellentesque consectetur. Duis risus "
-                    "erat, iaculis a scelerisque ac, ornare eu dui. Aenean "
-                    "pellentesque elementum purus, ullamcorper posuere dui "
-                    "egestas sit amet. Maecenas posuere quam turpis, sed tristique "
-                    "mauris aliquet vel. Maecenas dapibus rhoncus pharetra. "
-                    "Integer sed vestibulum mauris. Integer tellus eros, consequat "
-                    "in urna non, scelerisque accumsan leo. Vivamus ultricies, "
-                    "diam at congue blandit, erat nunc cursus turpis, vitae "
-                    "aliquet nunc elit vitae erat. Integer consectetur risus vel "
-                    "aliquet malesuada. Sed ut tristique nisi. Aliquam erat "
-                    "volutpat. Sed in elementum nulla, sit amet malesuada metus. "
-                    "Class aptent taciti sociosqu ad litora torquent per conubia "
-                    "nostra, per inceptos himenaeos. Quisque porta purus eu lacus "
-                    "porttitor viverra. Phasellus nec consequat erat, ac viverra "
-                    "erat. Pellentesque bibendum risus ante, varius efficitur "
-                    "lectus varius in. Donec rhoncus convallis porttitor. ",
-                textAlign: TextAlign.justify,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: _itemTitle(title: "Tentang OwnFood"),
+                  ),
+                  SizedBox(height: 8.0),
+                  RichText(
+                    textAlign: TextAlign.justify,
+                    text: TextSpan(
+                      style: TextStyle(color: Colors.black),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text:
+                              "Sebuah platform untuk melayani pesan antar makanan dari "
+                              "restoran terdekat. Terdapat resep makanan yang kami peroleh dari ",
+                        ),
+                        TextSpan(
+                          text: "The Meal DB",
+                          style: TextStyle(color: Colors.blue),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              _helper.intentLauncher(
+                                  "https://www.themealdb.com/api.php");
+                            },
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 16.0),
+                  _itemTitle(title: "Library"),
+                  SizedBox(height: 8.0),
+                  _itemList(
+                    name: "flutter_launcher_icons",
+                    url: "https://pub.dev/packages/flutter_launcher_icons",
+                  ),
+                  _itemList(
+                    name: "flappy_search_bar",
+                    url: "https://pub.dev/packages/flappy_search_bar",
+                  ),
+                  _itemList(
+                    name: "url_launcher",
+                    url: "https://pub.dev/packages/url_launcher",
+                  ),
+                  _itemList(
+                    name: "http",
+                    url: "https://pub.dev/packages/http",
+                  ),
+                  SizedBox(height: 16.0),
+                  _itemTitle(title: "Developed by"),
+                  SizedBox(height: 8.0),
+                  _itemList(
+                    name: "Rahmat Trinanda",
+                    url: "https://www.linkedin.com/in/rahmat-trinanda/",
+                    description: "Sebagai Programmer",
+                  ),
+                  _itemList(
+                    name: "M. Zidan Azis",
+                    url: "https://www.instagram.com/semeru.zidan/",
+                    description: "Sebagai UI/UX Designer",
+                  ),
+                  SizedBox(height: 16.0),
+                  _itemTitle(title: "Powered by"),
+                  SizedBox(height: 8.0),
+                  _itemList(
+                    name: "Flutter",
+                    url: "https://flutter.dev/",
+                  ),
+                  _itemList(
+                    name: "Android Studio",
+                    url: "https://developer.android.com/studio",
+                  ),
+                  _itemList(
+                    name: "Git",
+                    url: "https://git-scm.com/",
+                  ),
+                  _itemList(
+                    name: "GitHub",
+                    url: "https://github.com/",
+                  ),
+                ],
               ),
             ),
             SizedBox(height: size.height * .1),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _itemTitle({@required String title}) {
+    return Text(
+      title,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 16.0,
+      ),
+    );
+  }
+
+  Widget _itemList(
+      {@required String name, @required String url, String description}) {
+    return RichText(
+      text: TextSpan(
+        style: TextStyle(color: Colors.black),
+        children: <TextSpan>[
+          TextSpan(
+            text: "\u2022 ",
+          ),
+          TextSpan(
+            text: name + " ",
+            style: TextStyle(color: Colors.blue),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                _helper.intentLauncher(url);
+              },
+          ),
+          TextSpan(
+            text: description ?? "",
+          ),
+        ],
       ),
     );
   }
