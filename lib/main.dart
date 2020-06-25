@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ownfood/core/style/app_color.dart';
 import 'package:ownfood/pages/splash_page.dart';
 
 void main() {
@@ -10,13 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Own Food',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: colorPrimary,
+        accentColor: colorAccent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashPage(),
     );
   }
 }
-

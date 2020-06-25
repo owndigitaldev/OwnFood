@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ownfood/core/canvas/splash_canvas.dart';
+import 'package:ownfood/pages/home_page.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -9,10 +12,24 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   GlobalKey<ScaffoldState> _scaffoldKey;
 
+  void _toHomePage() {
+    Timer(
+      Duration(seconds: 2),
+      () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (_) => HomePage(),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   void initState() {
     super.initState();
     _scaffoldKey = new GlobalKey<ScaffoldState>();
+    _toHomePage();
   }
 
   @override
@@ -25,9 +42,15 @@ class _SplashPageState extends State<SplashPage> {
         children: [
           SplashBackground(),
           Center(
-            child: Image.asset(
-              images + "ic_own_food.png",
-              width: size.width * .75,
+            child: OrientationBuilder(
+              builder: (ctx, orientation) {
+                return Image.asset(
+                  images + "ic_own_food.png",
+                  width: orientation == Orientation.portrait
+                      ? size.width * .75
+                      : size.height * .75,
+                );
+              },
             ),
           ),
         ],

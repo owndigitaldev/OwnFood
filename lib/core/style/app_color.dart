@@ -15,5 +15,5 @@ class AppColor extends Color {
   );
 }
 
-final darkBlue = AppColor("#375bbe");
-final lightGreen = AppColor("#00aea1");
+final colorPrimary = AppColor("#e2784e");
+final colorAccent = AppColor("#f0ba58");

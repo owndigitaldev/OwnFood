@@ -1,16 +1,16 @@
 # ownfood
 
-A new Flutter application.
+Aplikasi Resep makanan menggunakan [Flutter](https://flutter.dev/)
 
-## Getting Started
+## Rest API by :
+[The Meal DB](https://www.themealdb.com/api.php)
 
-This project is a starting point for a Flutter application.
+## Fonts :
 
-A few resources to get you started if this is your first Flutter project:
+- Segoe UI
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Library :
+
+- [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
+- [flappy_search_bar](https://pub.dev/packages/flappy_search_bar)

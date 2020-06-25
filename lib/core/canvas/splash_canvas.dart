@@ -15,7 +15,7 @@ class SplashBackground extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: darkBlue,
+                color: colorPrimary,
               ),
             ),
           ),
@@ -27,7 +27,7 @@ class SplashBackground extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: lightGreen,
+                color: colorAccent,
               ),
             ),
           ),
