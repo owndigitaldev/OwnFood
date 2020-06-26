@@ -51,7 +51,7 @@ class _AboutPageState extends State<AboutPage> {
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                color: Color.fromRGBO(255, 255, 255, 0.5),
+                color: Colors.white,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
