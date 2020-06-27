@@ -133,6 +133,19 @@ class _AboutPageState extends State<AboutPage> {
                     name: "GitHub",
                     url: "https://github.com/",
                   ),
+                  SizedBox(height: 16.0),
+                  Center(
+                    child: InkWell(
+                      child: Text(
+                        "Original Design",
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                      onTap: () {
+                        _helper.intentLauncher(
+                            "https://1drv.ms/f/s!Auc0Dx9nvP8YiAoiN70AwsD6_jqL");
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),

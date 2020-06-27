@@ -20,7 +20,7 @@ Aplikasi Resep makanan menggunakan [Flutter](https://flutter.dev/)
 ## Developed by :
 
 - [Rahmat Trinanda](https://www.linkedin.com/in/rahmat-trinanda/) sebagai Programmer
-- [M. Zidan Azis](https://www.instagram.com/semeru.zidan/) sebagai UI/UX Designer
+- [M. Zidan Azis](https://www.instagram.com/semeru.zidan/) sebagai UI/UX Designer [Original Design](https://1drv.ms/f/s!Auc0Dx9nvP8YiAoiN70AwsD6_jqL)
 
 ## Powered by : 
 
